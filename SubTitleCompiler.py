@@ -96,7 +96,7 @@ for x in range(len(titles)):
             
 
         SubTitleObj = SubTitleObject(
-            name,
+            name if not noName else None,
             titles[x+2],
             color,
             FrCl[0],
@@ -133,16 +133,13 @@ for frame in range(startFrame, endFrame + 1, 1):
     
 for item in SubTitles:
     AddSwitchItem('Color Controller',   item.ID, item.color)
-    AddSwitchItem('Name Controller',    item.ID, item.name)
+    AddSwitchItem('Name Controller',    item.ID, item.name if item.name != None else '')
     AddSwitchItem('Contents Controller', item.ID, item.content)    
 
 
 
-    FCOut = Controller.nodes['Frame Controller'].outputs[0]
-    Controller.links.new(FCOut, Controller.nodes['Name Controller'].inputs[0])
-    Controller.links.new(FCOut, Controller.nodes['Contents Controller'].inputs[0])
-    Controller.links.new(FCOut, Controller.nodes['Color Controller'].inputs[0])
+FCOut = Controller.nodes['Frame Controller'].outputs[0]
+Controller.links.new(FCOut, Controller.nodes['Name Controller'].inputs[0])
+Controller.links.new(FCOut, Controller.nodes['Contents Controller'].inputs[0])
+Controller.links.new(FCOut, Controller.nodes['Color Controller'].inputs[0])
 
-
-
-    print(frame, index)
