@@ -1,0 +1,45 @@
+# FuzzyExpress SubTitle Controller
+## Usage:
+
+- Using Blender 4.1 or later:
+- Append / Link SubTitleController object to your file.
+- In the scripting tab: add a new text named "Text" add put instructions in it.
+- Open the SubTitleCompiler.py script into Blender and run it.
+
+If you run into errors or have an idea, open an Issue or fix/add it and open a PR.
+
+## Configuration: 
+
+### syntax:
+```md
+: <Name>
+; <Color> (hex code) [must be above name] 
+<Start Frame> <Duration> ( - for no expire ) [must be 1 below name]
+<Subtitle> [must be 2 bellow name] 
+
+other name methods:
+:: Keep last used name (also keeps color)
+:; No name (for consecutive subtitles, so viewer knows it already, it will still be stored. Also keeps color)
+```
+
+### Example:
+```log
+; ff00ff
+: Julianna
+20 -
+Hello!
+
+; 00ff00
+: Elyia
+70 -
+Hi!
+
+:;
+120 90
+How's the program going?
+
+; ff00ff
+: Julianna
+120+90+10 70
+It's going great!
+```

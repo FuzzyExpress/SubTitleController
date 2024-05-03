@@ -1,3 +1,8 @@
+# FuzzyExpress SubTitle Compiler
+# run this script from within blender
+# be sure to import the SubTitleController object and nodes 
+# have a text item names "Text" with the subtitle instructions
+
 import bpy
 
 def SwitchFab(tree, name, type, pos):
